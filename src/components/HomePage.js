@@ -1,17 +1,15 @@
 import React from 'react';
+import './styling/HomePage.css';
 
 const HomePage = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-8">
-                    <h1>Welcome to My Portfolio</h1>
-                    <p>This is a brief introduction about myself.</p>
-                </div>
-                <div className="col-md-4">
-                    <img src="profile-pic.jpg" alt="Profile" className="img-fluid" />
+                <div className="col-md-6">
+                    <h1 className="fade-in-text">Hello, my name is...</h1>
                 </div>
             </div>
+            {/* Additional rows and columns as needed */}
         </div>
     );
 };
