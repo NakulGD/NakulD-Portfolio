@@ -1,31 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import './styling/HomePage.css';
+import { TypeAnimation } from 'react-type-animation';
+
+const CURSOR_CLASS_NAME = 'custom-type-animation-cursor';
 
 const HomePage = () => {
-    const [buttonText, setButtonText] = useState('OFF');
+    const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setButtonText('ON');
-        }, 3400); // 3400ms = 3s (animation delay) + 0.4s (animation duration)
+        const startTimer = setTimeout(() => {
+            setStartAnimation(true);
+        }, 5000); // Delay of 6000ms (6 seconds)
 
-        return () => clearTimeout(timer);
+        return () => clearTimeout(startTimer);
     }, []);
 
-
-
-
     return (
-        <div className="grid-container">
-            <h1 className="welcome-element"> Glad you're here, my name is</h1>
-            <div className="on-element">
-                <div className="button">
-                    <span>{buttonText}</span>
-                </div>
+        <>
+        <div className="fade-out-container">
+            <div className='animated-rectangle'> </div>
+            <div className='sliding-rectangle'></div>
+            <div className="grid-container">
+                {startAnimation && (
+                    <div className="typing-animation-container">
+                        <TypeAnimation
+                            cursor={false}
+                            className={CURSOR_CLASS_NAME}
+                            sequence={[
+                                'Nakul Dharan',
+                                (el) => el.classList.remove(CURSOR_CLASS_NAME), // Remove cursor after text
+                            ]}
+                            speed={15}
+                            wrapper="h2"
+                            repeat={0}
+                            style={{ fontSize: '2em' }}
+                        />
+                    </div>
+                )}
+                {/* ... other elements ... */}
             </div>
-            <h1 className="text-flicker-in-glow name-element">Nakul Dharan</h1>
-            {/* Additional rows and columns as needed */}
         </div>
+        <div className='top-sliding-rectangle'></div>
+        <div className='top-left-rectangle'>
+            <p>Nakul Dharan</p>
+        </div>
+        </>
     );
 };
 
