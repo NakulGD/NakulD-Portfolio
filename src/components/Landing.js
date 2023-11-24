@@ -6,7 +6,7 @@ import normalCursorImage from '../assets/normal-cursor.png';
 
 const CURSOR_CLASS_NAME = 'custom-type-animation-cursor';
 
-const HomePage = () => {
+const Landing = ({ onLandingAnimationEnd }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [startAnimation, setStartAnimation] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -31,7 +31,7 @@ const HomePage = () => {
                 const duration = 1200; // Duration of the movement in milliseconds
         
                 const startPos = { x: window.innerWidth * 67 / 100, y: window.innerHeight * 50 / 100 };
-                const endPos = { x: window.innerWidth * 46.5 / 100, y: window.innerHeight * 60 / 100 };
+                const endPos = { x: window.innerWidth * 48 / 100, y: window.innerHeight * 68 / 100 };
                 const controlPoint1 = { x: window.innerWidth * 80 / 100, y: window.innerHeight * 60 / 100 }; // First control point
                 const controlPoint2 = { x: window.innerWidth * 45 / 100, y: window.innerHeight * 80 / 100 }; // Second control point
         
@@ -88,6 +88,7 @@ const HomePage = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setWipeAnimationCompleted(true);
+            onLandingAnimationEnd();
         }, 8500 + 2000); // Duration of wipe animation + delay
 
         return () => clearTimeout(timer);
@@ -134,4 +135,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Landing;

@@ -229,8 +229,9 @@ body {
 
 
 .custom-cursor {
+    clip-path: polygon(71% 44%, 35% 44%, 23% 77%, 0 0);
     left: -700px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     width: 50px; /* Adjust size as needed */
     height: 50px;
     background-color: rgb(140, 255, 0);
@@ -386,4 +387,9 @@ body {
     100% {
         transform: translate(4000%, 900%) scale(10); /* Move off bottom right */
     }
+}
+
+.home-page-container {
+    animation: fadeIn 2s ease-out;
+    opacity: 0; /* Start with the home page hidden */
 }
