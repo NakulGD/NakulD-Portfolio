@@ -11,6 +11,8 @@ const HomePage = () => {
     const [startAnimation, setStartAnimation] = useState(false);
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [cursorVisible, setCursorVisible] = useState(false);
+    const [wipeAnimationCompleted, setWipeAnimationCompleted] = useState(false);
+
 
     useEffect(() => {
         const startTimer = setTimeout(() => {
@@ -51,10 +53,11 @@ const HomePage = () => {
                 const animate = (timestamp) => {
                     if (!startTime) startTime = timestamp;
                     const elapsed = timestamp - startTime;
-                    const t = Math.min(elapsed / duration, 1); // Normalized time (0 to 1)
-        
+                    let t = elapsed / duration; // Normalized time (0 to 1)
+                    t = 1 - Math.pow(1 - t, 3); // Apply cubic easing (ease-out)
+
                     const currentPosition = calculateBezierPoint(t, startPos, controlPoint1, controlPoint2, endPos);
-        
+
                     setCursorPosition(currentPosition);
         
                     if (elapsed < duration) {
@@ -80,41 +83,53 @@ const HomePage = () => {
     
         return () => clearTimeout(timer);
       }, []);
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setWipeAnimationCompleted(true);
+        }, 8500 + 2000); // Duration of wipe animation + delay
+
+        return () => clearTimeout(timer);
+    }, []);
     
     return (
         <>
-            <div className={`blink-2 ${isVisible ? 'visible' : ''}`}>
-                <p>GO</p>
-            </div>
-            <div className='animated-rectangle'> </div>
-            <div className="grid-container">
-                {startAnimation && (
-                    <div className="typing-animation-container">
-                        <TypeAnimation
-                            cursor={false}
-                            className={CURSOR_CLASS_NAME}
-                            sequence={[
-                                'Nakul Dharan',
-                                (el) => el.classList.remove(CURSOR_CLASS_NAME), // Remove cursor after text
-                            ]}
-                            speed={15}
-                            wrapper="h2"
-                            repeat={0}
-                            style={{ fontSize: '2em' }}
-                        />
+            <div className="screen-wipe"></div>
+            {!wipeAnimationCompleted && (
+                <>
+                    <div className={`blink-2 ${isVisible ? 'visible' : ''}`}>
+                        <p>GO</p>
                     </div>
-                )}
-
-            </div>          
-            <div 
-                className="custom-cursor"
-                style={{
-                    left: `${cursorPosition.x}px`,
-                    top: `${cursorPosition.y}px`,
-                    opacity: cursorVisible ? 1 : 0,
-                }}
-            />
-
+                    <div className='animated-rectangle'></div>
+                    <div className="grid-container">
+                        {startAnimation && (
+                            <div className="typing-animation-container">
+                                <TypeAnimation
+                                    cursor={false}
+                                    className={CURSOR_CLASS_NAME}
+                                    sequence={[
+                                        'Nakul Dharan',
+                                        (el) => el.classList.remove(CURSOR_CLASS_NAME),
+                                    ]}
+                                    speed={10}
+                                    wrapper="h2"
+                                    repeat={0}
+                                    style={{ fontSize: '2em' }}
+                                />
+                            </div>
+                        )}
+                    </div>
+                    <div 
+                        className="custom-cursor"
+                        style={{
+                            left: `${cursorPosition.x}px`,
+                            top: `${cursorPosition.y}px`,
+                            opacity: cursorVisible ? 1 : 0,
+                        }}
+                    />
+                </>
+            )}
         </>
     );
 };

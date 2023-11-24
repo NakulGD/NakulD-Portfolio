@@ -360,3 +360,30 @@ body {
               transform: scale(1);
     }
   }
+
+
+  .screen-wipe {
+    position: fixed; /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100px; /* Starting width */
+    height: 100px; /* Starting height */
+    background-color: black; /* Or any color you want for the wipe */
+    z-index: 5; /* Above other elements */
+    transform: translate(-100%, -100%); /* Start off-screen */
+    opacity: 1; /* Start hidden */
+    animation: screenWipeAnimation 4s forwards; /* Animation duration */
+    animation-delay: 8.5s; /* Delay before the animation starts */
+}
+
+@keyframes screenWipeAnimation {
+    0% {
+        transform: translate(-100%, -100%) scale(1); /* Start from top left */
+    }
+    50% {
+        transform: translate(50%, 50%) scale(30); /* Scale to cover screen */
+    }
+    100% {
+        transform: translate(4000%, 900%) scale(10); /* Move off bottom right */
+    }
+}
