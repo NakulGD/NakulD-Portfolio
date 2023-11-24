@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styling/HomePage.css';
+import './styling/Landing.css';
 import { TypeAnimation } from 'react-type-animation';
 import normalCursorImage from '../assets/normal-cursor.png';
 
@@ -24,13 +24,13 @@ const HomePage = () => {
 
     useEffect(() => {
         if (startAnimation) {
-            const delay = 1500;
+            const delay = 1280;
 
             const timeoutId = setTimeout(() => {
                 let startTime = null;
-                const duration = 900; // Duration of the movement in milliseconds
+                const duration = 1200; // Duration of the movement in milliseconds
         
-                const startPos = { x: window.innerWidth * 70 / 100, y: window.innerHeight * 50 / 100 };
+                const startPos = { x: window.innerWidth * 67 / 100, y: window.innerHeight * 50 / 100 };
                 const endPos = { x: window.innerWidth * 46.5 / 100, y: window.innerHeight * 60 / 100 };
                 const controlPoint1 = { x: window.innerWidth * 80 / 100, y: window.innerHeight * 60 / 100 }; // First control point
                 const controlPoint2 = { x: window.innerWidth * 45 / 100, y: window.innerHeight * 80 / 100 }; // Second control point
