@@ -129,8 +129,8 @@ body {
     background-color: black;
     width: 0;
     height: 0;
-    -webkit-animation: growSquare 1s 2s forwards, growRectangle 1s 3s forwards; /* 3s delay for the second animation */
-    animation: growSquare 1s 2s forwards, growRectangle 1s 3s forwards;  /* 3s delay for the second animation */
+    -webkit-animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards; /* 3s delay for the second animation */
+    animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards;  /* 3s delay for the second animation */
 }
 
 @-webkit-keyframes growSquare {

@@ -56,7 +56,7 @@ const MainPage = () => {
                     <div className='social-link'>
                         <a href='https://www.linkedin.com/in/nakuldharan/'>
                             <FontAwesomeIcon icon={faLinkedinIn} size="xl" style={{color: "#ffffff",}} />
-                            <span>LinkedIn</span>
+                            <span>LinkedIn</span> 
                         </a>
                     </div>
 
