@@ -173,7 +173,7 @@ body {
 }
 
 .background {
-    will-change: transform;
+    will-change: scroll-position;
     position: absolute;
     width: inherit;
     height: inherit;
@@ -285,50 +285,161 @@ body {
     padding-top: 2%;
     position: initial;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    align-items:flex-start;
+    align-items: start;
+    gap: 20vw; /* Adjust the space between columns */
     width: 105%;
     background-color: #ffffff;
     height: 250px;
 }
 
-.education-section p {
-    color: black;
+.education-left {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 8.2%;
-    background-color: rgb(255, 255, 255);
-    font-style: italic;
+    flex-direction: column;
+    flex: 1 1;
+    align-items: flex-start;
+    margin-left: 2.3vw;
+}
+
+.education-right {
+    flex: 1;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 9vh;
+}
+
+.education-right span {
+    color: rgb(0, 0, 0);
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
     font-weight: 600;
     font-size: 1em;
 }
 
-.education-title {
+.course-list {
+    padding: 1vh;
+    border: 2px solid #000000; /* Solid black border, adjust color and width as needed */
+    border-radius: 7px; /* Rounded corners */
+    direction: rtl;
+    width: 30vw; /* Adjust the width as needed */
+    height: 9vh; /* Adjust the height as needed */
+    overflow-y: scroll;
+}
+
+.course-list ul {
+    padding: 5px 10px;
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.course-list li {
+    margin-bottom: 10px; /* Space between items */
+    font-family: 'Lexend', sans-serif;
+    font-weight: 200;
+}
+
+.course-list::-webkit-scrollbar {
+    padding: 50px;
+    width: 10px; /* Width of the scrollbar */
+}
+
+.course-list::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.course-list::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded edges */
+}
+
+.course-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovered */
+}
+
+.school-name {
     display: flex;
     flex-direction: row;
     z-index: 4;
-    padding-left: 2.5%;
+    padding-bottom: 2vh;
+}
+
+.school-name span {
     color: rgb(0, 0, 0);
     font-family: 'Lexend', sans-serif;
     font-style: normal;
-    font-size: 2em;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.edu-info-container {
+    align-items: center;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    margin-top: -27px;
+}
+
+.rounded-rectangle {
+    background-color: transparent; /* Set background to transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the rectangle */
+    text-align: center; /* Center the text */
+}
+
+.rounded-rectangle-degree {
+    background-color: transparent; /* Set background to transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the rectangle */
+    margin: 0vh 1vw; /* Margin around the rectangle */
+    text-align: center; /* Center the text */
+}
+
+.rounded-rectangle-degree span {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.0em; /* Font size for the text */
+    font-family: 'Lexend', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.rounded-rectangle span {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.0em; /* Font size for the text */
+    font-family: 'Lexend', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.education-title {
+    display: flex;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+    z-index: 4;
+
 }
 
 .education-title h1 {
     font-size: 2rem;
     left: 4%;
     top:25%;
+    color: rgb(0, 0, 0);
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-size: 2em;
 }
 
 .education-section img {
     padding-top: 1%;
-    padding-left: 3.8%;
     height: 5rem;
+    margin-bottom: 1vh;
 }
-
-
 
 .projects-section {
     display: flex;

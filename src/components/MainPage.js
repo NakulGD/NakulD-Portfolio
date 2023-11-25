@@ -8,6 +8,7 @@ import Resume from '../assets/Nakul-Dharan-Resume-2023_2024Winter.pdf';
 import ubcLogo from '../assets/ubc_image.png';
 import cmdPrompt from '../assets/terminal.png'
 import eduTitle from '../assets/edu_title.png';
+import { motion } from "framer-motion"
 
 const ColoredLine = ({ color }) => (
     <hr
@@ -87,13 +88,53 @@ const MainPage = () => {
                 </div>
             </div>
 
-            <div className="education-section">
-                <div className='education-title'>
-                    <h1> {'>Education'} </h1>
-                </div>
-                <img src= {ubcLogo} alt='UBC Logo'></img>
-                <p>2020-2025 | BASc in Computer Engineering</p>
+            <div className='education-title'>
+                        <h1> {'>Education'} </h1>
             </div>
+
+            <div className="education-section">
+
+                <div className='education-left'>
+
+                    <div className='school-name'>
+                        <span>The University of British Columbia - Vancouver</span>
+                    </div>
+
+                    <img src= {ubcLogo} alt='UBC Logo'></img>
+
+                    <div className='edu-info-container'>
+
+                        <div className="rounded-rectangle">
+                            <span>2020-2025</span>
+                        </div>
+
+                        <div className='rounded-rectangle-degree'>
+                            <span>BASc - Computer Engineering</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div className='education-right'>
+                    <span>Relevant Courses</span>
+                    <div className="course-list">
+                        <ul>
+                            <li>Algorithms and Data Structures</li>
+                            <li>Algorithm Design and Analysis</li>
+                            <li>Operating Systems</li>
+                            <li>Software Systems</li>
+                            <li>Computing Hardware I/II</li>
+                            <li>Human Computer Interfaces in Engineering Design</li>
+                            <li>Circuit Analysis</li>
+                            <li>Mathematical Proofs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             <div style={{ borderTop: "2px solid black ", marginLeft: 20, marginRight: 20 }}></div>
             <div className='projects-section'>
                 <div className='projects-title'>
