@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/NakulGD.github.io/static/css/main.ea0a5a42.css",
-    "main.js": "/NakulGD.github.io/static/js/main.25d3ab9a.js",
-    "static/js/787.2dcca737.chunk.js": "/NakulGD.github.io/static/js/787.2dcca737.chunk.js",
-    "static/media/Nakul-Dharan-Resume-2023_2024Winter.pdf": "/NakulGD.github.io/static/media/Nakul-Dharan-Resume-2023_2024Winter.96ef233902079d80da13.pdf",
-    "static/media/edu_title.png": "/NakulGD.github.io/static/media/edu_title.af7997148e11ca3cd279.png",
-    "index.html": "/NakulGD.github.io/index.html",
-    "main.ea0a5a42.css.map": "/NakulGD.github.io/static/css/main.ea0a5a42.css.map",
-    "main.25d3ab9a.js.map": "/NakulGD.github.io/static/js/main.25d3ab9a.js.map",
-    "787.2dcca737.chunk.js.map": "/NakulGD.github.io/static/js/787.2dcca737.chunk.js.map"
+    "main.css": "/static/css/main.ea0a5a42.css",
+    "main.js": "/static/js/main.4fadf79a.js",
+    "static/js/787.2dcca737.chunk.js": "/static/js/787.2dcca737.chunk.js",
+    "static/media/Nakul-Dharan-Resume-2023_2024Winter.pdf": "/static/media/Nakul-Dharan-Resume-2023_2024Winter.96ef233902079d80da13.pdf",
+    "static/media/edu_title.png": "/static/media/edu_title.af7997148e11ca3cd279.png",
+    "index.html": "/index.html",
+    "main.ea0a5a42.css.map": "/static/css/main.ea0a5a42.css.map",
+    "main.4fadf79a.js.map": "/static/js/main.4fadf79a.js.map",
+    "787.2dcca737.chunk.js.map": "/static/js/787.2dcca737.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea0a5a42.css",
-    "static/js/main.25d3ab9a.js"
+    "static/js/main.4fadf79a.js"
   ]
 }
