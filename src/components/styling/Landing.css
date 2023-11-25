@@ -126,7 +126,7 @@ body {
     left: 48%; /* Center horizontally */
     transform: translateY(-50%);
     transform: translateX(-50%); /* Adjust horizontal position */
-    background-color: black;
+    background-color: rgb(255, 0, 0);
     width: 0;
     height: 0;
     -webkit-animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards; /* 3s delay for the second animation */
