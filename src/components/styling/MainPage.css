@@ -18,6 +18,7 @@ body {
 
 
 .header-rectangle {
+    position: relative;
     overflow: hidden;
     overflow-y:hidden;
     display: flex;
@@ -172,7 +173,8 @@ body {
 }
 
 .background {
-    position: fixed;
+    will-change: transform;
+    position: absolute;
     width: inherit;
     height: inherit;
     top: 0;
@@ -189,7 +191,7 @@ body {
     width: 20px;
     height: 20px;
     background: rgba(113, 255, 0, 0.2);
-    animation: animate 10s linear infinite;
+    animation: animate 15s linear infinite;
 }
 
 

@@ -126,7 +126,7 @@ body {
     left: 48%; /* Center horizontally */
     transform: translateY(-50%);
     transform: translateX(-50%); /* Adjust horizontal position */
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(0, 0, 0);
     width: 0;
     height: 0;
     -webkit-animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards; /* 3s delay for the second animation */
@@ -240,8 +240,8 @@ body {
     pointer-events: none; /* To prevent cursor interaction */
     position: absolute; /* Keep this to ensure proper positioning */
     z-index: 3; /* High z-index to ensure it's on top */
-    -webkit-animation: pulsate-bck 0.5s 8.3s ease-in-out both;
-            animation: pulsate-bck 0.5s 8.3s ease-in-out both;
+    -webkit-animation: pulsate-bck 0.5s 7.5s ease-in-out both;
+            animation: pulsate-bck 0.5s 7.5s ease-in-out both;
 }
 
 @keyframes moveCursor {
@@ -271,7 +271,7 @@ body {
     transform: translateX(-50%); /* Adjust horizontal position */
     background-color: black;
     opacity: 0;
-    animation: fadeIn 2s 7s ease forwards;
+    animation: fadeIn 2s 6s ease forwards;
 }
 
 .blink-2 p {

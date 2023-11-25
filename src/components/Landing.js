@@ -14,15 +14,15 @@ const Landing = ({ onLandingAnimationEnd }) => {
     const [wipeAnimationCompleted, setWipeAnimationCompleted] = useState(false);
 
 
-    useEffect(() => {
+    useEffect(() => {                           /////Timing for the typing animation to start
         const startTimer = setTimeout(() => {
             setStartAnimation(true);
-        }, 5000); // Delay of 6000ms (6 seconds)
+        }, 4000); // Delay of 4000ms (6 seconds)
 
         return () => clearTimeout(startTimer);
     }, []);
 
-    useEffect(() => {
+    useEffect(() => {                           //////Cursor path/timing
         if (startAnimation) {
             const delay = 1280;
 
@@ -75,11 +75,11 @@ const Landing = ({ onLandingAnimationEnd }) => {
     }, [startAnimation]);
 
 
-    useEffect(() => {
+    useEffect(() => {               ////blink box timing
         // Set a timeout to change visibility after 10 seconds
         const timer = setTimeout(() => {
           setIsVisible(true);
-        }, 8500); // 10000 milliseconds = 10 seconds
+        }, 7500); // 10000 milliseconds = 10 seconds
     
         return () => clearTimeout(timer);
       }, []);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState, } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -22,6 +22,7 @@ const ColoredLine = ({ color }) => (
 
 const MainPage = () => {
     const [fadeIn, setFadeIn] = useState(false);
+    const [offsetY, setOffsetY] = useState(0);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -31,10 +32,19 @@ const MainPage = () => {
         return () => clearTimeout(timer);
     }, []);
 
+
+    useEffect(() => {
+        const handleScroll = () => setOffsetY(window.pageYOffset);
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div className='fade-in-left-container'>
             <div className='header-rectangle'>
-                <ul class="background">
+                <ul class="background" style={{ transform: `translateY(${offsetY * 0.5}px)` }}>
                     <li></li>
                     <li></li>
                     <li></li>
