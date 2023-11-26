@@ -1,4 +1,5 @@
 
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -306,7 +307,7 @@ body {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    margin-top: 9vh;
+    margin-top: 2vh;
 }
 
 .education-right span {
@@ -328,6 +329,11 @@ body {
 }
 
 .course-list ul {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.0em; /* Font size for the text */
+    font-family: 'Lexend', sans-serif;
+    color: rgb(0, 0, 0);
     padding: 5px 10px;
     list-style: none; /* Removes default list styling */
     padding: 0;
@@ -442,13 +448,16 @@ body {
 }
 
 .projects-section {
+    flex-wrap: wrap;
     display: flex;
     padding-top: 2%;
     width: 105%;
     height: 800px;
     flex-direction: column;
     align-items: center;
-    background-color:#ffffff;
+    background-color: #ffffff;
+    align-content: flex-start;
+    padding-left: 2vw;
 }
 
 .projects-title {
@@ -456,7 +465,9 @@ body {
     display: flex;
     flex-direction: row;
     z-index: 4;
-    padding-left: 2.5%;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
     color: rgb(0, 0, 0);
     font-family: 'Lexend', sans-serif;
     font-size: 2em;
@@ -466,19 +477,130 @@ body {
     font-size: 2rem;
     left: 4%;
     top:25%;
+    color: rgb(0, 0, 0);
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
 }
 
+
 .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 20px; /* Space between cards */
-    max-width: 1200px; /* Adjust as needed */
-    margin: 0 auto;
+ 
+    /* Additional styles as needed */
 }
 
 .project-card {
-    width: 300px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: transparent; /* Set background to transparent */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 0px 0px 5px; /* Padding inside the rectangle */
+    width: 350px; /* Adjust as needed */
     /* Additional styling for cards */
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.401);
+
 }
-  
+
+.blur-background {
+    filter: blur(5px);
+    transition: filter 1s ease; /* Adjust the duration as needed */
+}
+
+.enlarged-project {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%; /* 50% of the screen */
+    height: 30%; /* Adjust as needed */
+    z-index: 20;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* More styles as needed */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.project-subtitle {
+    color: rgb(0, 0, 0);
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2em;
+    align-self: center;
+}
+
+
+
+.project-banner-enlarge{
+        /* Common styles for logos */
+        width: 100%; /* Example size */
+        height: 20%;
+        margin-right: 10px;
+}
+
+
+.project-header {
+    display: flex;
+    align-items: center; /* Align vertically */
+}
+
+.project-logo {
+    height: 80px; /* Adjust as needed */
+    object-fit:scale-down;
+    margin-right: 10px;
+}
+
+.project-card h2 {
+    margin: 0; /* Remove default margin */
+    /* Additional styling as needed */
+}
+
+.project-card h5 {
+    margin-top: 15px;
+}
+
+
+.font-style-1 {
+    font-family: 'Outfit', sans-serif;
+}
+
+.font-style-2 {
+    font-family: 'Vina Sans', sans-serif;
+}
+
+.font-style-3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+}

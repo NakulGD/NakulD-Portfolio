@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState, } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -7,8 +9,10 @@ import './styling/MainPage.css';
 import Resume from '../assets/Nakul-Dharan-Resume-2023_2024Winter.pdf';
 import ubcLogo from '../assets/ubc_image.png';
 import cmdPrompt from '../assets/terminal.png'
-import eduTitle from '../assets/edu_title.png';
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from 'framer-motion';
+import ClashLogo from '../assets/clash_course_logo.png'
+import OS161Logo from '../assets/os161_logo.png'
+import SearchLogo from '../assets/search_engine_logo.png'
 
 const ColoredLine = ({ color }) => (
     <hr
@@ -24,6 +28,8 @@ const ColoredLine = ({ color }) => (
 const MainPage = () => {
     const [fadeIn, setFadeIn] = useState(false);
     const [offsetY, setOffsetY] = useState(0);
+    const [selectedId, setSelectedId] = useState(null);
+    
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -42,9 +48,21 @@ const MainPage = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+
+
+    const projects = [
+        { id: 'project1', title: 'Clash Course', subtitle: 'A University Course Planner', logo: ClashLogo, fontClass: 'font-style-1'},
+        //{ id: 'project2', title: 'OS161', subtitle: 'Operating System Implementation', logo: OS161Logo, fontClass: 'font-style-2'},
+        { id: 'project3', title: 'Search Engine', subtitle: 'Autocompletion Capable Search', logo: SearchLogo, fontClass: 'font-style-3'},
+        //{ id: 'project4', title: 'Content Curation System', subtitle: 'Content Curation for Twitter', logo: ClashLogo, fontClass: 'font-style-1' },
+        //{ id: 'project5', title: '16-Bit RISC Machine', subtitle: 'Turing-Complete Computer', logo: ClashLogo, fontClass: 'font-style-1' },
+        //{ id: 'project6', title: 'Automatic Heating System', subtitle: 'Built from an NTC Thermistor', logo: ClashLogo, fontClass: 'font-style-1' },
+        // Add more projects
+    ];
+
     return (
         <div className='fade-in-left-container'>
-            <div className='header-rectangle'>
+            <div className={`header-rectangle ${selectedId ? 'blur-background' : ''}`}>
                 <ul class="background" style={{ transform: `translateY(${offsetY * 0.5}px)` }}>
                     <li></li>
                     <li></li>
@@ -88,11 +106,11 @@ const MainPage = () => {
                 </div>
             </div>
 
-            <div className='education-title'>
+            <div className={`education-title ${selectedId ? 'blur-background' : ''}`}>
                         <h1> {'>Education'} </h1>
             </div>
 
-            <div className="education-section">
+            <div className={`education-section ${selectedId ? 'blur-background' : ''}`}>
 
                 <div className='education-left'>
 
@@ -134,13 +152,38 @@ const MainPage = () => {
                 </div>
             </div>
 
+            <div className={`test ${selectedId ? 'blur-background' : ''}`} style={{ borderTop: "2px solid black ", marginLeft: 20, marginRight: 20 }}></div>
 
-            <div style={{ borderTop: "2px solid black ", marginLeft: 20, marginRight: 20 }}></div>
-            <div className='projects-section'>
-                <div className='projects-title'>
+            <div className={`projects-title ${selectedId ? 'blur-background' : ''}`}>
                     <h1>{'>Technical Projects'}</h1>
+            </div>
+            <div className='projects-section'>
+                <div className={`projects-container ${selectedId ? 'blur-background' : ''}`}>
+                    {projects.map(project => (
+                        <motion.div key={project.id} layoutId={project.id} onClick={() => setSelectedId(project.id)} className="project-card">
+                            <div className="project-header">
+                                <img src={project.logo} alt={`${project.title} Logo`} className="project-logo" />
+                                <motion.h2 className={project.fontClass}>{project.title}</motion.h2>
+                            </div>
+                            <motion.h5 className='project-subtitle'>{project.subtitle}</motion.h5>
+                        </motion.div>
+                    ))}
                 </div>
-            
+
+
+                <AnimatePresence>
+                    {selectedId && (
+                        <motion.div layoutId={selectedId} className="enlarged-project">
+                            {projects.find(project => project.id === selectedId) && (
+                                <>
+                                    <motion.h2 className={projects.find(project => project.id === selectedId).fontClass}>{projects.find(project => project.id === selectedId).title}</motion.h2>
+                                    <motion.h5 className="project-subtitle">{projects.find(project => project.id === selectedId).subtitle}</motion.h5>
+                                    <motion.button className="close-button" onClick={() => setSelectedId(null)}>X</motion.button>
+                                </>
+                            )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

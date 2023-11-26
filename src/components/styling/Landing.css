@@ -284,11 +284,6 @@ body {
     color: white;
 }
 
-.blink-2.visible {
-    -webkit-animation: blink-2 0.5s both;
-            animation: blink-2 0.5s both;
-}
-
 
 
 /* ----------------------------------------------
