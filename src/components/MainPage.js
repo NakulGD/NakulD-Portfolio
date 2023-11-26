@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState, } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -51,9 +49,11 @@ const MainPage = () => {
 
 
     const projects = [
-        { id: 'project1', title: 'Clash Course', subtitle: 'A University Course Planner', logo: ClashLogo, fontClass: 'font-style-1'},
+        { id: 'project1', title: 'Clash Course', subtitle: 'A University Course Planner', logo: ClashLogo, fontClass: 'font-style-1', description: 'Full-stack web application assisting students in visualizing course schedules and catching potential conflicts. Developed using HTML, CSS, and JavaScript, the app allows students to add courses and times to a schedule, visually highlighting any time conflicts between courses.',
+        website: 'http://clashcourse.online',
+        github: 'https://github.com/NakulGD/worklist_helper'},
         //{ id: 'project2', title: 'OS161', subtitle: 'Operating System Implementation', logo: OS161Logo, fontClass: 'font-style-2'},
-        { id: 'project3', title: 'Search Engine', subtitle: 'Autocompletion Capable Search', logo: SearchLogo, fontClass: 'font-style-3'},
+        //{ id: 'project3', title: 'Search Engine', subtitle: 'Autocompletion Capable Search', logo: SearchLogo, fontClass: 'font-style-3'},
         //{ id: 'project4', title: 'Content Curation System', subtitle: 'Content Curation for Twitter', logo: ClashLogo, fontClass: 'font-style-1' },
         //{ id: 'project5', title: '16-Bit RISC Machine', subtitle: 'Turing-Complete Computer', logo: ClashLogo, fontClass: 'font-style-1' },
         //{ id: 'project6', title: 'Automatic Heating System', subtitle: 'Built from an NTC Thermistor', logo: ClashLogo, fontClass: 'font-style-1' },
@@ -172,18 +172,21 @@ const MainPage = () => {
 
 
                 <AnimatePresence>
-                    {selectedId && (
+                    {selectedId && projects.find(project => project.id === selectedId) && (
                         <motion.div layoutId={selectedId} className="enlarged-project">
-                            {projects.find(project => project.id === selectedId) && (
-                                <>
-                                    <motion.h2 className={projects.find(project => project.id === selectedId).fontClass}>{projects.find(project => project.id === selectedId).title}</motion.h2>
-                                    <motion.h5 className="project-subtitle">{projects.find(project => project.id === selectedId).subtitle}</motion.h5>
-                                    <motion.button className="close-button" onClick={() => setSelectedId(null)}>X</motion.button>
-                                </>
-                            )}
+                            <button className="close-button" onClick={() => setSelectedId(null)}>X</button>
+                            <div className="enlarged-project-content">
+                                <h2 className="project-title">{projects.find(project => project.id === selectedId).title}</h2>
+                                <p className="project-description">{projects.find(project => project.id === selectedId).description}</p>
+                                <div className="project-links">
+                                    <a href={projects.find(project => project.id === selectedId).website} target="_blank" className="project-link-button">Visit Website</a>
+                                    <a href={projects.find(project => project.id === selectedId).github} target="_blank" className="project-link-button">GitHub Repo</a>
+                                </div>
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
+
             </div>
         </div>
     );
