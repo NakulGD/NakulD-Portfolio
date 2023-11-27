@@ -484,33 +484,55 @@ body {
 
 
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
+
     gap: 20px; /* Space between cards */
  
     /* Additional styles as needed */
 }
 
 .project-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: transparent; /* Set background to transparent */
-    border-radius: 15px; /* Rounded corners */
-    padding: 5px 0px 0px 5px; /* Padding inside the rectangle */
-    width: 350px; /* Adjust as needed */
-    /* Additional styling for cards */
+    font-family: 'Lexend', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.401);
+}
 
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card.selected {
+    background-color: #e9e9e9;
+    width: 60vw;
+}
+
+.project-details {
+    margin-top: 15px;
+}
+
+.project-link-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.project-link-button:hover {
+    background-color: #0056b3;
 }
 
 .blur-background {
     filter: blur(5px);
     transition: filter 1s ease; /* Adjust the duration as needed */
 }
+
+
 
 .enlarged-project {
     position: fixed;
@@ -592,22 +614,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.overlay.show {
-    opacity: 1;
-}
-
 
 .enlarged-project-content {
     text-align: left;
@@ -650,4 +656,17 @@ body {
 
 .project-links {
     margin-bottom: 20px;
+}
+
+
+.card {
+    background-color: white;
+    padding: 2rem;
+}
+
+
+.card p{
+    font-family: 'Lexend', sans-serif;
+    padding-top: 1rem;
+    line-height: 150%;
 }

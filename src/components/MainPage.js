@@ -23,10 +23,44 @@ const ColoredLine = ({ color }) => (
     />
 );
 
+
+const ProjectCard = ({ project, isSelected, onClick }) => {
+    // Animation variants
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    };
+
+    return (
+        <div className={`project-card ${isSelected ? 'selected' : ''}`} onClick={() => onClick(project.id)}>
+            <h2>{project.title}</h2>
+            <h5>{project.subtitle}</h5>
+            {isSelected && (
+                <motion.div 
+                    className="project-details"
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={variants}
+                    transition={{ duration: 2 }} // Adjust duration as needed
+                >
+                    <p>{project.description}</p>
+                    <a href={project.github} className="project-link-button">GitHub Repo</a>
+                </motion.div>
+            )}
+        </div>
+    );
+};
+
 const MainPage = () => {
     const [fadeIn, setFadeIn] = useState(false);
     const [offsetY, setOffsetY] = useState(0);
     const [selectedId, setSelectedId] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleCardClick = (id) => {
+        setSelectedId(selectedId === id ? null : id);
+    };
     
 
     useEffect(() => {
@@ -158,34 +192,15 @@ const MainPage = () => {
                     <h1>{'>Technical Projects'}</h1>
             </div>
             <div className='projects-section'>
-                <div className={`projects-container ${selectedId ? 'blur-background' : ''}`}>
-                    {projects.map(project => (
-                        <motion.div key={project.id} layoutId={project.id} onClick={() => setSelectedId(project.id)} className="project-card">
-                            <div className="project-header">
-                                <img src={project.logo} alt={`${project.title} Logo`} className="project-logo" />
-                                <motion.h2 className={project.fontClass}>{project.title}</motion.h2>
-                            </div>
-                            <motion.h5 className='project-subtitle'>{project.subtitle}</motion.h5>
-                        </motion.div>
-                    ))}
-                </div>
+                {projects.map(project => (
+                    <ProjectCard 
+                        key={project.id} 
+                        project={project} 
+                        isSelected={selectedId === project.id} 
+                        onClick={handleCardClick} 
+                    />
+                ))}
 
-
-                <AnimatePresence>
-                    {selectedId && projects.find(project => project.id === selectedId) && (
-                        <motion.div layoutId={selectedId} className="enlarged-project">
-                            <button className="close-button" onClick={() => setSelectedId(null)}>X</button>
-                            <div className="enlarged-project-content">
-                                <h2 className="project-title">{projects.find(project => project.id === selectedId).title}</h2>
-                                <p className="project-description">{projects.find(project => project.id === selectedId).description}</p>
-                                <div className="project-links">
-                                    <a href={projects.find(project => project.id === selectedId).website} target="_blank" className="project-link-button">Visit Website</a>
-                                    <a href={projects.find(project => project.id === selectedId).github} target="_blank" className="project-link-button">GitHub Repo</a>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
 
             </div>
         </div>
