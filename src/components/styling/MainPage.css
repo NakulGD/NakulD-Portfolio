@@ -9,6 +9,7 @@ body {
     background-color: white;
     position: relative;
     overflow-x: hidden;
+    margin: 0;
 }
 
 
@@ -488,10 +489,10 @@ body {
 .projects-section {
     padding-top: 2%;
     width: 100vw;
-    height:700px;
+    height: fit-content;
+    padding-bottom: 10%;
     background-color: #ffffff;
     align-content: flex-start;
-
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
