@@ -28,7 +28,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items:flex-start;
-    width: 100vw; /* Thin rectangle width */
+    width: 102%; /* Thin rectangle width */
     height:max-content; /* Thin rectangle height */
     background-color: rgb(0, 0, 0);
 }
@@ -91,7 +91,7 @@ body {
 
 @media screen and (max-width: 768px) {
     .socials-bar {
-        width: 100%; /* Adjust width to fit the screen */
+        width: 102%; /* Adjust width to fit the screen */
         justify-content: center; /* Center the items */
         margin: 0 auto; /* Center the bar itself */
         padding-top: 30px; /* Adjust padding as needed */
@@ -104,10 +104,13 @@ body {
 
     .header-name {
         text-align: center;
+        padding-right: 2%;
     }
 
     .header-info {
         text-align: center;
+        padding-right: 2%;
+
     }
 
 }
@@ -475,17 +478,6 @@ body {
     margin-bottom: 1vh;
 }
 
-
-@media screen and (max-width: 768px) {
-    .education-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10vw;
-    }
-}
-
 .projects-section {
     padding-top: 2%;
     width: 100vw;
@@ -520,6 +512,68 @@ body {
     color: rgb(0, 0, 0);
     font-family: 'Lexend', sans-serif;
     font-style: normal;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .education-title {
+        display: flex;
+        align-self: flex-start;
+        justify-self: flex-start;
+        margin-top: 40px;
+        margin-left: 5px;
+        z-index: 4;
+    
+    }
+
+
+    .education-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10vw;
+    }
+
+    .course-list {
+        text-align: left;
+        padding: 20px;
+        border: 2px solid #000000; /* Solid black border, adjust color and width as needed */
+        border-radius: 8px; /* Rounded corners */
+        direction: rtl;
+        width: 90vw; /* Adjust the width as needed */
+        height: 14vh; /* Adjust the height as needed */
+        overflow-y: scroll;
+    }
+
+    .projects-section {
+        padding-top: 2%;
+        width: 99vw;
+        height: fit-content;
+        padding-bottom: 30%;
+        background-color: #ffffff;
+        align-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px; /* Space between cards */
+        justify-content:center;
+    
+    }
+
+    .projects-title {
+        margin-top: 40px;
+        margin-left: 5px;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        z-index: 4;
+        color: rgb(0, 0, 0);
+        font-family: 'Lexend', sans-serif;
+        font-size: 2em;
+    }
+
 }
 
 .blur-background {
