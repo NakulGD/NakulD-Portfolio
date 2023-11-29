@@ -339,7 +339,6 @@ body {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    margin-top: 2vh;
 }
 
 .education-right span {
@@ -347,7 +346,7 @@ body {
     font-family: 'Lexend', sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .course-list {
@@ -357,7 +356,7 @@ body {
     border-radius: 8px; /* Rounded corners */
     direction: rtl;
     width: 30vw; /* Adjust the width as needed */
-    height: 14vh; /* Adjust the height as needed */
+    height: 18vh; /* Adjust the height as needed */
     overflow-y: scroll;
 }
 
@@ -420,16 +419,14 @@ body {
 }
 
 .rounded-rectangle {
-    background-color: transparent; /* Set background to transparent */
-    border: 2px solid black; /* Black border */
+    background-color:#002145;
     border-radius: 15px; /* Rounded corners */
     padding: 5px 10px; /* Padding inside the rectangle */
     text-align: center; /* Center the text */
 }
 
 .rounded-rectangle-degree {
-    background-color: transparent; /* Set background to transparent */
-    border: 2px solid black; /* Black border */
+    background-color:#002145;
     border-radius: 15px; /* Rounded corners */
     padding: 5px 10px; /* Padding inside the rectangle */
     margin: 0vh 1vw; /* Margin around the rectangle */
@@ -441,7 +438,7 @@ body {
     font-style: italic;
     font-size: 1.0em; /* Font size for the text */
     font-family: 'Lexend', sans-serif;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .rounded-rectangle span {
@@ -449,7 +446,7 @@ body {
     font-style: italic;
     font-size: 1.0em; /* Font size for the text */
     font-family: 'Lexend', sans-serif;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .education-title {
