@@ -17,18 +17,18 @@ const Landing = ({ onLandingAnimationEnd }) => {
     useEffect(() => {                           /////Timing for the typing animation to start
         const startTimer = setTimeout(() => {
             setStartAnimation(true);
-        }, 4000); // Delay of 4000ms (6 seconds)
+        }, 600); // Delay of 4000ms (6 seconds)
 
         return () => clearTimeout(startTimer);
     }, []);
 
     useEffect(() => {                           //////Cursor path/timing
         if (startAnimation) {
-            const delay = 1280;
+            const delay = 440;
 
             const timeoutId = setTimeout(() => {
                 let startTime = null;
-                const duration = 1200; // Duration of the movement in milliseconds
+                const duration = 600; // Duration of the movement in milliseconds
         
                 const startPos = { x: window.innerWidth * 67 / 100, y: window.innerHeight * 50 / 100 };
                 const endPos = { x: window.innerWidth * 48 / 100, y: window.innerHeight * 68 / 100 };
@@ -79,7 +79,7 @@ const Landing = ({ onLandingAnimationEnd }) => {
         // Set a timeout to change visibility after 10 seconds
         const timer = setTimeout(() => {
           setIsVisible(true);
-        }, 7500); // 10000 milliseconds = 10 seconds
+        }, 500); // 10000 milliseconds = 10 seconds
     
         return () => clearTimeout(timer);
       }, []);
@@ -89,7 +89,7 @@ const Landing = ({ onLandingAnimationEnd }) => {
         const timer = setTimeout(() => {
             setWipeAnimationCompleted(true);
             onLandingAnimationEnd();
-        }, 8500 + 2000); // Duration of wipe animation + delay
+        }, 3000); // Duration of wipe animation + delay
 
         return () => clearTimeout(timer);
     }, []);
@@ -113,7 +113,7 @@ const Landing = ({ onLandingAnimationEnd }) => {
                                         'Nakul Dharan',
                                         (el) => el.classList.remove(CURSOR_CLASS_NAME),
                                     ]}
-                                    speed={10}
+                                    speed={50}
                                     wrapper="h2"
                                     repeat={0}
                                     style={{ fontSize: '2em' }}

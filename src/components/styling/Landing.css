@@ -129,8 +129,8 @@ body {
     background-color: rgb(0, 0, 0);
     width: 0;
     height: 0;
-    -webkit-animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards; /* 3s delay for the second animation */
-    animation: growSquare 1s 1s forwards, growRectangle 1s 2s forwards;  /* 3s delay for the second animation */
+    -webkit-animation: growSquare 0.6s 0.6s forwards, growRectangle 1s forwards; /* 3s delay for the second animation */
+    animation: growSquare 1s 1s forwards, growRectangle 1s forwards;  /* 3s delay for the second animation */
 }
 
 @-webkit-keyframes growSquare {
@@ -240,8 +240,8 @@ body {
     pointer-events: none; /* To prevent cursor interaction */
     position: absolute; /* Keep this to ensure proper positioning */
     z-index: 3; /* High z-index to ensure it's on top */
-    -webkit-animation: pulsate-bck 0.5s 7.5s ease-in-out both;
-            animation: pulsate-bck 0.5s 7.5s ease-in-out both;
+    -webkit-animation: pulsate-bck 0.5s 1.5s ease-in-out both;
+            animation: pulsate-bck 0.5s 1.5s ease-in-out both;
 }
 
 @keyframes moveCursor {
@@ -271,7 +271,7 @@ body {
     transform: translateX(-50%); /* Adjust horizontal position */
     background-color: black;
     opacity: 0;
-    animation: fadeIn 2s 6s ease forwards;
+    animation: fadeIn 2s 1s ease forwards;
 }
 
 .blink-2 p {
@@ -368,8 +368,8 @@ body {
     z-index: 5; /* Above other elements */
     transform: translate(-100%, -100%); /* Start off-screen */
     opacity: 1; /* Start hidden */
-    animation: screenWipeAnimation 4s forwards; /* Animation duration */
-    animation-delay: 8.5s; /* Delay before the animation starts */
+    animation: screenWipeAnimation 2s forwards; /* Animation duration */
+    animation-delay: 1.9s; /* Delay before the animation starts */
 }
 
 @keyframes screenWipeAnimation {
