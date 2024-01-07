@@ -13,18 +13,6 @@ import OS161Logo from '../assets/os161_logo.png'
 import SearchLogo from '../assets/search_engine_logo.png'
 import HeatingReport from '../assets/Heating_System_Report.pdf'
 
-const ColoredLine = ({ color }) => (
-    <hr
-        style={{
-            width: 4,
-            color: color,
-            backgroundColor: color,
-            height: 5
-        }}
-    />
-);
-
-
 const ProjectCard = ({ project, isSelected, onClick }) => {
     
     return (
@@ -74,7 +62,13 @@ const MainPage = () => {
     const handleCardClick = (id) => {
         setSelectedId(selectedId === id ? null : id);
     };
-    
+
+    const handlePageClick = (event) => {
+        // Check if a card is selected and if the click is outside the card
+        if (selectedId && !event.target.closest('.myproject-card')) {
+            setSelectedId(null);
+        }
+    };
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -92,6 +86,18 @@ const MainPage = () => {
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+
+    useEffect(() => {
+        // Add event listener for clicks on the page
+        document.addEventListener('click', handlePageClick);
+
+        return () => {
+            // Clean up the event listener
+            document.removeEventListener('click', handlePageClick);
+        };
+    }, [selectedId]);
+
 
 
     const projects = [
@@ -130,21 +136,21 @@ const MainPage = () => {
                 <div className='socials-bar'>
 
                     <div className='social-link'>
-                        <a href='https://www.linkedin.com/in/nakuldharan/'>
+                        <a href='https://www.linkedin.com/in/nakuldharan/' target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faLinkedinIn} size="xl" style={{color: "#ffffff",}} />
                             <span>LinkedIn</span> 
                         </a>
                     </div>
 
                     <div className='social-link'>
-                        <a href='https://github.com/NakulGD'>
+                        <a href='https://github.com/NakulGD' target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faGithub} size="xl" style={{color: "#ffffff",}} />
                             <span>GitHub</span>
                         </a>
                     </div>
 
                     <div className='social-link'>
-                        <a href= {Resume}>
+                        <a href={Resume} target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faFile} size="xl" style={{color: "#ffffff",}} target = "_blank" />
                             <span>Resume</span>
                         </a>

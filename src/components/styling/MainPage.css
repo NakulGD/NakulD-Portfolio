@@ -393,7 +393,7 @@ body {
 }
 
 .course-list::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color when hovered */
+    background: #002145; /* Color when hovered */
 }
 
 .school-name {
